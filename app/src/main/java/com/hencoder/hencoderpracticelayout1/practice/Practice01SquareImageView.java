@@ -2,13 +2,14 @@ package com.hencoder.hencoderpracticelayout1.practice;
 
 import android.content.Context;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.AppCompatImageView;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 
 /**
  * 需要把它写成正方形的 ImageView
  */
-public class Practice01SquareImageView extends ImageView {
+public class Practice01SquareImageView extends AppCompatImageView {
     public Practice01SquareImageView(Context context) {
         super(context);
     }
@@ -33,5 +34,16 @@ public class Practice01SquareImageView extends ImageView {
         // 然后通过计算，让宽度和高度一致
 
         // 再用 setMeasuredDimension(width, height) 来保存最终的宽度和高度
+
+        int width = getMeasuredWidth();
+        int height = getMeasuredHeight();
+
+        if (width > height) {
+            width = height;
+        } else {
+            height = width;
+        }
+
+        setMeasuredDimension(width, height);
     }
 }
